@@ -46,7 +46,7 @@ body{
    ====================================================== */
 #cover{
   position:fixed;inset:0;z-index:60;cursor:pointer;
-  background:transparent;
+  background:rgba(10,8,6,.45);
   display:flex;align-items:center;justify-content:center;
   overflow:hidden;
 }
@@ -55,7 +55,7 @@ body{
   position:fixed;inset:0;z-index:-3;
   background-size:cover;background-position:center 28%;
   background-repeat:no-repeat;
-  opacity:.6;
+  opacity:0;
   filter:sepia(.22) saturate(.92) contrast(.96);
   transform:scale(1.06);
   animation:coverKen 22s ease-in-out infinite alternate;
@@ -95,6 +95,7 @@ body{
   text-align:center;
   position:relative;
   z-index:3;
+  opacity:0;
   padding:46px 26px 40px;
   /* frosted glass panel embedded into the video screen */
   background:rgba(250,244,230,.34);
@@ -170,7 +171,7 @@ body{
 #cover-wrap{display:flex;flex-direction:column;align-items:center}
 
 /* company watermark at bottom of cover */
-.cv-brand{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:4;
+.cv-brand{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:4;opacity:0;
   display:flex;align-items:center;justify-content:center;gap:14px;
   background:rgba(0,0,0,.3);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
   padding:12px 24px;border-radius:6px}
@@ -512,8 +513,8 @@ document.getElementById('bg-photo').style.backgroundImage = "url('data:image/jpe
 
 /* ===== cover entrance ===== */
 window.addEventListener('load',()=>{
-  gsap.set('#cover-card',{opacity:0,y:18});
   gsap.to('#cover-card',{opacity:1,y:0,duration:1.2,ease:'power3.out',delay:.2});
+  gsap.to('.cv-brand',{opacity:1,duration:1.2,ease:'power3.out',delay:.2});
   gsap.from('.cv-25',{scale:.7,opacity:0,duration:1,ease:'back.out(1.5)',delay:.45});
   gsap.from('.corner-fl',{opacity:0,scale:.5,duration:.9,stagger:.1,delay:.6,ease:'power2.out'});
 });
