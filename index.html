@@ -166,6 +166,19 @@ body{
   animation:breathe 2.4s ease-in-out infinite}
 @keyframes breathe{0%,100%{opacity:.3;transform:scale(.8)}50%{opacity:1;transform:scale(1.2)}}
 
+/* wrap card so it stays centered, brand is absolute to cover */
+#cover-wrap{display:flex;flex-direction:column;align-items:center}
+
+/* company watermark at bottom of cover */
+.cv-brand{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:4;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  background:rgba(0,0,0,.25);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);
+  padding:8px 16px;border-radius:4px}
+.cv-brand .done-by{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-light);opacity:.95}
+.cv-brand a{display:inline-flex;align-items:center;text-decoration:none;transition:opacity .3s}
+.cv-brand a:hover{opacity:.8}
+.cv-brand img{height:44px;width:auto;display:block;filter:brightness(1.05) contrast(1.1)}
+
 /* ======================================================
    DOCUMENT
    ====================================================== */
@@ -316,6 +329,7 @@ body{
 <!-- ============ COVER ============ -->
 <div id="cover">
   <div id="cover-veil"></div>
+  <div id="cover-wrap">
   <div id="cover-card">
     <!-- corner florals -->
     <svg class="corner-fl tl" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"></svg>
@@ -331,6 +345,13 @@ body{
     <div class="cv-names">Chandarkant &amp; Sharannamma<br>Biradar</div>
     <div class="cv-cta"><span class="dot"></span>Tap to open<span class="dot"></span></div>
   </div>
+  <div class="cv-brand">
+    <span class="done-by">done by</span>
+    <a href="https://www.socialbuzzz18.in/" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+      <img src="IMG_7199.PNG" alt="SocialBuzzz18">
+    </a>
+  </div>
+</div>
 </div>
 
 <!-- ============ DOCUMENT ============ -->
